@@ -92,7 +92,7 @@ const Hero = () => {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.5 }}
                 >
-                  I'm{" "}
+                  I&apos;m{" "}
                   <motion.span className="font-bold">
                     Ifeanyi Onyekwelu
                   </motion.span>{" "}
