@@ -91,7 +91,11 @@ const itemVariants = {
 };
 
 const SkillsGrid = () => {
-  const [selectedSkill, setSelectedSkill] = useState<any>(null);
+  const [selectedSkill, setSelectedSkill] = useState<{
+    name: string;
+    icon: string;
+    proficiency: number;
+  } | null>(null);
 
   return (
     <section className="py-20 px-8">
@@ -137,7 +141,9 @@ const SkillsGrid = () => {
                     className="flex items-center p-3 rounded-lg bg-gray-900/50 cursor-pointer hover:bg-gray-800/70 transition-colors"
                     onClick={() =>
                       setSelectedSkill(
-                        selectedSkill?.name === skill.name ? null : skill
+                        selectedSkill && selectedSkill.name === skill.name
+                          ? null
+                          : skill
                       )
                     }
                   >
@@ -187,10 +193,12 @@ const SkillsGrid = () => {
             >
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center p-3 mr-4">
-                  <img
+                  <Image
                     src={selectedSkill.icon}
                     alt={selectedSkill.name}
                     className="w-full h-full object-contain"
+                    width={25}
+                    height={25}
                   />
                 </div>
                 <div>
