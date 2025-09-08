@@ -134,7 +134,7 @@ const Hero = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  Hello, I'm
+                  Hello, I&apos;m
                 </motion.h5>
               </motion.div>
 
