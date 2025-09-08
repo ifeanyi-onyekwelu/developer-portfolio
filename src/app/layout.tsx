@@ -1,5 +1,10 @@
 import "./globals.css";
 
+export const metadata = {
+  title: "Ifeanyi Onyekwelu - Developer Portfolio",
+  description: "Welcome to my developer portfolio!",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
