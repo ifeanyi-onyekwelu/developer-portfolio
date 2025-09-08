@@ -37,10 +37,17 @@ const Hero = () => {
 
   const typedwords = (
     <Typewriter
-      words={["Software", "Full-Stack", "Wordpress", "Blockchain"]}
+      words={[
+        "Software",
+        "Full-Stack",
+        "Mobile App",
+        "Wordpress",
+        "Blockchain",
+        "Smart Contract",
+      ]}
       loop
       cursor
-      cursorStyle="_"
+      cursorStyle="|"
       typeSpeed={70}
       deleteSpeed={50}
       delaySpeed={1000}
@@ -79,7 +86,7 @@ const Hero = () => {
                           opacity: 1,
                         },
                       }}
-                      className="text-2xl md:text-3xl text-white/70 hover:text-amber-500 transition-colors"
+                      className="text-xl md:text-3xl text-white/70 hover:text-amber-500 transition-colors"
                     >
                       <Link
                         href={link.url}
@@ -117,12 +124,16 @@ const Hero = () => {
                   </motion.span>{" "}
                 </motion.h1>
                 <motion.p
-                  className="text-xl md:text-2xl font-medium font-roboto-mono"
+                  className="text-xl md:text-2xl font-roboto-mono relative flex flex-wrap items-center gap-2"
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.7 }}
                 >
-                  A {typedwords}developer based in Enugu
+                  <span>A</span>
+                  <span className="inline-block text-secondary font-medium">
+                    {typedwords}
+                  </span>
+                  <span>developer based in Enugu</span>
                 </motion.p>
 
                 <motion.div className="flex gap-5">
