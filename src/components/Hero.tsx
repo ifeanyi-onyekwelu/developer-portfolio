@@ -4,6 +4,7 @@ import { FaGithub, FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
+import Link from "next/link";
 
 interface SocialLinks {
   name: string;
@@ -16,10 +17,22 @@ const MotionImage = motion(Image);
 
 const Hero = () => {
   const socialLinks: SocialLinks[] = [
-    { name: "Instagram", url: "https://instagram.com", icon: <FaInstagram /> },
-    { name: "LinkedIn", url: "https://linkedin.com", icon: <FaLinkedin /> },
-    { name: "GitHub", url: "https://github.com", icon: <FaGithub /> },
-    { name: "X", url: "https://twitter.com", icon: <FaXTwitter /> },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/heis.ifeanyi_/",
+      icon: <FaInstagram />,
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/ifeanyichukwu-onyekwelu",
+      icon: <FaLinkedin />,
+    },
+    {
+      name: "GitHub",
+      url: "https://github.com/ifeanyi-onyekwelu",
+      icon: <FaGithub />,
+    },
+    { name: "X", url: "https://x.com/Code_w_Ifeanyi", icon: <FaXTwitter /> },
   ];
 
   const typedwords = (
@@ -68,7 +81,13 @@ const Hero = () => {
                       }}
                       className="text-2xl md:text-3xl text-white/70 hover:text-amber-500 transition-colors"
                     >
-                      {link.icon}
+                      <Link
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.icon}
+                      </Link>
                     </motion.li>
                   ))}
               </motion.ul>
