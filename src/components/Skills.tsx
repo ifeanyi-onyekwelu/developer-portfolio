@@ -2,14 +2,23 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // Skill data
 const skills = [
   {
+    category: "Languages",
+    items: [
+      { name: "JavaScript", icon: "/icons/javascript.svg", proficiency: 90 },
+      { name: "TypeScript", icon: "/icons/typescript.svg", proficiency: 85 },
+      { name: "Python", icon: "/icons/python.svg", proficiency: 80 },
+      { name: "Go", icon: "/icons/go.svg", proficiency: 60 }, // already in Backend
+    ],
+  },
+  {
     category: "Frontend",
     items: [
-      { name: "HTML5", icon: "/icons/html5.svg", proficiency: 90 },
-      { name: "CSS3", icon: "/icons/css3.svg", proficiency: 85 },
+      { name: "HTML5 / CSS3", icon: "/icons/html5.svg", proficiency: 90 },
       { name: "TailwindCSS", icon: "/icons/tailwind.svg", proficiency: 80 },
       { name: "React", icon: "/icons/react.svg", proficiency: 88 },
       { name: "Next.js", icon: "/icons/nextjs.svg", proficiency: 75 },
@@ -22,7 +31,6 @@ const skills = [
       { name: "Express", icon: "/icons/express.svg", proficiency: 80 },
       { name: "Django", icon: "/icons/django.svg", proficiency: 70 },
       { name: "FastAPI", icon: "/icons/fastapi.svg", proficiency: 65 },
-      { name: "Go", icon: "/icons/go.svg", proficiency: 60 },
     ],
   },
   {
@@ -41,6 +49,24 @@ const skills = [
       { name: "Ethers.js", icon: "/icons/ethers.svg", proficiency: 75 },
       { name: "Hardhat", icon: "/icons/hardhat.svg", proficiency: 65 },
       { name: "IPFS", icon: "/icons/ipfs.svg", proficiency: 60 },
+    ],
+  },
+  {
+    category: "Cloud & DevOps",
+    items: [
+      { name: "Docker", icon: "/icons/docker.svg", proficiency: 75 },
+      { name: "AWS", icon: "/icons/aws.svg", proficiency: 65 },
+      { name: "CI/CD", icon: "/icons/cicd.svg", proficiency: 70 },
+      { name: "Kubernetes", icon: "/icons/kubernetes.svg", proficiency: 60 },
+    ],
+  },
+  {
+    category: "Tools",
+    items: [
+      { name: "GitHub", icon: "/icons/github.svg", proficiency: 90 },
+      { name: "Git", icon: "/icons/git.svg", proficiency: 85 },
+      { name: "Postman", icon: "/icons/postman.svg", proficiency: 80 },
+      { name: "VS Code", icon: "/icons/vscode.svg", proficiency: 90 },
     ],
   },
 ];
@@ -81,7 +107,8 @@ const SkillsGrid = () => {
             Skills & Technologies
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto font-medium">
-            Here are some of the technologies I've been working with recently.
+            Here are some of the technologies I&apos;ve been working with
+            recently.
           </p>
         </motion.div>
 
@@ -115,10 +142,12 @@ const SkillsGrid = () => {
                     }
                   >
                     <div className="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center p-2 mr-4">
-                      <img
+                      <Image
                         src={skill.icon}
                         alt={skill.name}
                         className="w-full h-full object-contain"
+                        width={25}
+                        height={25}
                       />
                     </div>
                     <div className="flex-grow text-white/75">
