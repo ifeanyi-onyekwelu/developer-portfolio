@@ -41,7 +41,7 @@ const Header = () => {
           className="text-2xl md:text-3xl font-semibold"
         >
           <Link href="#home" className="font-roboto-mono text-white">
-            CodeLikeIfeanyi
+            BuiltByIfeanyi
           </Link>
         </motion.h1>
 
