@@ -1,45 +1,156 @@
-import React from "react";
+"use client";
+
 import { motion } from "framer-motion";
-import ProjectCard from "./ProjectCard";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import Image from "next/image";
 
 const Projects = () => {
+  const projects = [
+    {
+      title: "E-Commerce Platform",
+      description:
+        "A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard.",
+      technologies: ["Next.js", "Node.js", "MongoDB", "Stripe"],
+      image: "/project1.jpg", // Replace with actual image
+      githubUrl: "https://github.com/ifeanyi-onyekwelu/ecommerce-platform",
+      liveUrl: "https://ecommerce-demo.vercel.app",
+      featured: true,
+    },
+    {
+      title: "Crypto Dashboard",
+      description:
+        "Real-time cryptocurrency tracking dashboard with price alerts and portfolio management.",
+      technologies: ["React", "Firebase", "CoinGecko API", "Tailwind CSS"],
+      image: "/project2.jpg", // Replace with actual image
+      githubUrl: "https://github.com/ifeanyi-onyekwelu/crypto-dashboard",
+      liveUrl: "https://crypto-tracker-io.vercel.app",
+      featured: false,
+    },
+    {
+      title: "Task Management App",
+      description:
+        "Collaborative task management application with real-time updates and team collaboration features.",
+      technologies: ["Next.js", "TypeScript", "Socket.io", "PostgreSQL"],
+      image: "/project3.jpg", // Replace with actual image
+      githubUrl: "https://github.com/ifeanyi-onyekwelu/task-manager",
+      liveUrl: "https://taskflow-app.vercel.app",
+      featured: false,
+    },
+    {
+      title: "NFT Marketplace",
+      description:
+        "Blockchain-based NFT marketplace with minting, buying, and selling functionality.",
+      technologies: ["Solidity", "Web3.js", "React", "IPFS"],
+      image: "/project4.jpg", // Replace with actual image
+      githubUrl: "https://github.com/ifeanyi-onyekwelu/nft-marketplace",
+      liveUrl: "https://nft-marketplace-demo.vercel.app",
+      featured: true,
+    },
+  ];
+
   return (
-    <section className="py-20 px-8">
-      <div className="container mx-auto max-w-6xl space-y-16">
+    <section id="projects" className="py-20 px-4 bg-gray-800/30">
+      <div className="container mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 text-white/80 font-montserrat">
-            Projects
-          </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto font-medium">
-            Here are some of the technologies I&apos;ve been working with
-            recently.
+          <h2 className="text-4xl font-bold mb-4 text-white">My Projects</h2>
+          <div className="w-20 h-1 bg-amber-500 mx-auto mb-6"></div>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            Here are some of the projects I've worked on recently
           </p>
         </motion.div>
 
-        {/* Example cards */}
-        <ProjectCard
-          title="Battleship"
-          technologies={["HTML", "CSS", "Javascript", "Node.js"]}
-          description="Used components of Javascript to implement basic data structures through the game of Battleship. Used a terminal to display ships and tracked where ships are hit or missed."
-          githubUrl="#"
-          link="#"
-          image="/project.jpg"
-        />
-        <ProjectCard
-          title="Another Project"
-          technologies={["React", "Tailwind", "Framer Motion"]}
-          description="This one has reversed layout."
-          githubUrl="#"
-          link="#"
-          image="/project.jpg"
-          reverse
-        />
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, delay: index * 0.1 }}
+              className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700 hover:border-amber-500/30 transition-colors duration-300 group"
+            >
+              <div className="relative overflow-hidden">
+                <div className="h-48 w-full relative">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                    <motion.a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white text-gray-900 p-2 rounded-full hover:bg-amber-500 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <FaGithub size={20} />
+                    </motion.a>
+                    <motion.a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white text-gray-900 p-2 rounded-full hover:bg-amber-500 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <FaExternalLinkAlt size={18} />
+                    </motion.a>
+                  </div>
+                  {project.featured && (
+                    <div className="absolute top-4 left-4 bg-amber-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
+                      Featured
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="bg-gray-700 text-amber-500 text-xs px-3 py-1 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-4">
+                  <motion.a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-300 hover:text-amber-500 transition-colors text-sm"
+                    whileHover={{ x: 5 }}
+                  >
+                    <FaGithub /> Code
+                  </motion.a>
+                  <motion.a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-300 hover:text-amber-500 transition-colors text-sm"
+                    whileHover={{ x: 5 }}
+                  >
+                    <FaExternalLinkAlt /> Live Demo
+                  </motion.a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
