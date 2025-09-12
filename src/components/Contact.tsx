@@ -67,10 +67,10 @@ const Contact = () => {
             className="space-y-8"
           >
             <h3 className="text-2xl font-bold text-white">
-              Let's talk about your project
+              Let&apos;s talk about your project
             </h3>
             <p className="text-gray-300">
-              I'm currently available for freelance work and open to new
+              I&apos;m currently available for freelance work and open to new
               opportunities. If you have a project that you want to get started
               or think you need my help with something, then get in touch.
             </p>

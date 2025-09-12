@@ -52,17 +52,17 @@ const About = () => {
               Crafting digital experiences with precision
             </h3>
             <p className="text-gray-300">
-              I'm a passionate software developer with expertise in building
-              exceptional digital experiences. With a focus on modern web
-              technologies, I specialize in creating responsive, user-friendly
-              applications that solve real-world problems.
+              I&apos;m a passionate software developer with expertise in
+              building exceptional digital experiences. With a focus on modern
+              web technologies, I specialize in creating responsive,
+              user-friendly applications that solve real-world problems.
             </p>
             <p className="text-gray-300">
-              My journey in development started 3 years ago, and since then I've
-              worked with various technologies including React, Next.js,
-              Node.js, and blockchain development. I'm constantly learning and
-              expanding my skill set to stay at the forefront of web
-              development.
+              My journey in development started 3 years ago, and since tpos;
+              I&amp;ve worked with various technologies including React,
+              Next.js, Node.js, and blockchain development. I&apos;m constantly
+              learning and expanding my skill set to stay at the forefront of
+              web development.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
@@ -90,7 +90,7 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Let's Work Together
+              Let&apos;s Work Together
             </motion.a>
           </motion.div>
         </div>
