@@ -5,28 +5,62 @@ import { motion } from "framer-motion";
 const Experience = () => {
   const experiences = [
     {
-      role: "Frontend Developer",
-      company: "Tech Solutions Inc.",
-      period: "2022 - Present",
+      role: "Software Engineer (Full-Stack)",
+      company: "Kedusoft | Remote",
+      period: "Sep 2024 – Jul 2025",
       description:
-        "Developed and maintained responsive web applications using React and Next.js. Collaborated with UX designers to implement user-friendly interfaces.",
-      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+        "Led full-stack development of scalable SaaS and fintech platforms. Boosted monthly transaction processing to $50K+ by integrating Stripe and Paystack, optimized PostgreSQL queries and Redis caching to cut API response times by 35%, and enhanced mobile conversion rates by 22% through redesigned TypeScript/React UI. Deployed Docker-based microservices with GitHub Actions CI/CD, scaling workloads on Kubernetes.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Kubernetes",
+        "Stripe",
+        "Paystack",
+      ],
     },
     {
-      role: "Web Developer Intern",
-      company: "Digital Agency LLC",
-      period: "2021 - 2022",
+      role: "Software Developer",
+      company: "World Brain Technology | Enugu, NG",
+      period: "Feb 2024 – Aug 2024",
       description:
-        "Assisted in building client websites and web applications. Gained experience in modern web development practices and tools.",
-      technologies: ["JavaScript", "HTML/CSS", "WordPress", "PHP"],
+        "Delivered a SaaS platform for SMEs (10K+ users) with React, Node.js, GraphQL, and PostgreSQL. Built AI-driven dashboards enabling real-time insights and scaled microservices to handle 50K+ daily requests on AWS and GCP using Docker and Kubernetes.",
+      technologies: [
+        "React",
+        "Node.js",
+        "GraphQL",
+        "PostgreSQL",
+        "AWS",
+        "GCP",
+        "Docker",
+        "Kubernetes",
+      ],
     },
     {
-      role: "Freelance Developer",
-      company: "Self-Employed",
-      period: "2020 - 2021",
+      role: "Lecturer (Software Development)",
+      company: "Aptech Computer Education",
+      period: "Sep 2022 – Dec 2023",
       description:
-        "Worked with various clients to develop websites and web applications. Managed projects from conception to deployment.",
-      technologies: ["React", "Node.js", "MongoDB", "Firebase"],
+        "Taught full-stack web development courses including JavaScript, React, Node.js, and databases. Mentored 100+ students through hands-on projects, coding labs, and career workshops. Designed and delivered structured curriculum to improve student pass rates and technical readiness.",
+      technologies: ["JavaScript", "React", "Node.js", "MongoDB", "MySQL"],
+    },
+    {
+      role: "Junior Developer Intern",
+      company: "CV2 Career Internship | Remote",
+      period: "Aug 2023 – Jan 2024",
+      description:
+        "Contributed to a SaaS platform serving 10K+ active users. Implemented and deployed 5+ production features on a Python + Firebase stack, improved user retention by 20% through feature enhancements, and reduced customer-reported bugs by 50% with stability-focused releases.",
+      technologies: ["Python", "Firebase", "SaaS", "Agile", "CI/CD"],
+    },
+    {
+      role: "Freelance Contract Developer",
+      company: "BeeTec | Remote",
+      period: "Apr 2022 – Aug 2022",
+      description:
+        "Worked on multiple client projects as a contract developer. Built and deployed responsive web applications, integrated APIs, and optimized performance for business use cases. Delivered projects on time while collaborating closely with remote teams.",
+      technologies: ["React", "Next.js", "Node.js", "TailwindCSS"],
     },
   ];
 
@@ -45,7 +79,7 @@ const Experience = () => {
           </h2>
           <div className="w-20 h-1 bg-amber-500 mx-auto mb-6"></div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            My professional journey and experiences
+            My professional journey and contributions
           </p>
         </motion.div>
 
