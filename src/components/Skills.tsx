@@ -88,7 +88,7 @@ const Skills = () => {
           </h2>
           <div className="w-20 h-1 bg-amber-500 mx-auto mb-6"></div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Here are the technologies I've been working with recently
+            Here are the technologies I&apos;ve been working with recently
           </p>
         </motion.div>
 
