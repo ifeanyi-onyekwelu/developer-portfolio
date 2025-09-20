@@ -70,7 +70,6 @@ const About = () => {
                 <p className="text-gray-300">Ifeanyi Onyekwelu</p>
               </div>
               <div>
-                \ ''
                 <h4 className="text-amber-500 font-semibold">Email:</h4>
                 <p className="text-gray-300">ifeanyi.onyekwelu@outlook.com</p>
               </div>

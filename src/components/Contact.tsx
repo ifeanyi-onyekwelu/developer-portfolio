@@ -28,14 +28,14 @@ const Contact = () => {
     });
   };
 
-  const sendEmail = (e: any) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
         "service_vwps8d6",
         "template_wx5614s",
-        e.target,
+        e.currentTarget,
         "jHDRdNFp-5wK8QT3x"
       )
       .then(
