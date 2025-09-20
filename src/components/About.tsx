@@ -58,32 +58,31 @@ const About = () => {
               user-friendly applications that solve real-world problems.
             </p>
             <p className="text-gray-300">
-              My journey in development started 3 years ago, and since tpos;
+              My journey in development started 4 years ago, and since tpos;
               I&amp;ve worked with various technologies including React,
               Next.js, Node.js, and blockchain development. I&apos;m constantly
               learning and expanding my skill set to stay at the forefront of
-              web development.
+              web and mobile development.
             </p>
-
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div>
                 <h4 className="text-amber-500 font-semibold">Name:</h4>
                 <p className="text-gray-300">Ifeanyi Onyekwelu</p>
               </div>
               <div>
+                \ ''
                 <h4 className="text-amber-500 font-semibold">Email:</h4>
-                <p className="text-gray-300">hello@ifeanyi.dev</p>
+                <p className="text-gray-300">ifeanyi.onyekwelu@outlook.com</p>
               </div>
               <div>
                 <h4 className="text-amber-500 font-semibold">Age:</h4>
-                <p className="text-gray-300">24</p>
+                <p className="text-gray-300">20</p>
               </div>
               <div>
                 <h4 className="text-amber-500 font-semibold">From:</h4>
                 <p className="text-gray-300">Enugu, Nigeria</p>
               </div>
-            </div>
-
+            </div>{" "}
             <motion.a
               href="#contact"
               className="inline-block mt-6 bg-amber-500 hover:bg-amber-600 text-gray-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300"

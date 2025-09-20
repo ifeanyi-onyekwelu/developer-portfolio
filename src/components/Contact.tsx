@@ -9,11 +9,12 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    reply_to: "",
     subject: "",
     message: "",
   });
@@ -27,17 +28,26 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = (e: any) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+
+    emailjs
+      .sendForm(
+        "service_vwps8d6",
+        "template_wx5614s",
+        e.target,
+        "jHDRdNFp-5wK8QT3x"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Message sent!");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Something went wrong!");
+        }
+      );
   };
 
   return (
@@ -92,7 +102,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Email</h4>
-                  <p className="text-gray-300">hello@ifeanyi.dev</p>
+                  <p className="text-gray-300">ifeanyi.onyekwelu@outlook.com</p>
                 </div>
               </div>
             </div>
@@ -137,17 +147,17 @@ const Contact = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={sendEmail} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-white mb-2">
+                  <label htmlFor="from_name" className="block text-white mb-2">
                     Your Name
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="from_name"
+                    name="from_name"
+                    value={formData.from_name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
                     placeholder="John Doe"
@@ -155,14 +165,14 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-white mb-2">
+                  <label htmlFor="reply_to" className="block text-white mb-2">
                     Your Email
                   </label>
                   <input
                     type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                    id="reply_to"
+                    name="reply_to"
+                    value={formData.reply_to}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors"
                     placeholder="john@example.com"

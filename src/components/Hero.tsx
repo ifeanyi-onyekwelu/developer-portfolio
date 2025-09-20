@@ -163,7 +163,7 @@ const Hero = () => {
                   Got a project?
                 </motion.a>
                 <motion.a
-                  href="/resume.pdf" // Replace with actual resume link
+                  href="/IFEANYI ONYEKWELU.pdf" // Replace with actual resume link
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-gray-900 transition-all duration-300 py-3 px-6 rounded-lg font-semibold transform hover:-translate-y-1 flex items-center gap-2"
