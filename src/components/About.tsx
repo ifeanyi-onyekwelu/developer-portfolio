@@ -31,7 +31,7 @@ const About = () => {
           >
             <div className="w-full h-full rounded-2xl overflow-hidden">
               <Image
-                src="/about-image.jpg" // Replace with actual image
+                src="/ifeanyi.jpg" // Replace with actual image
                 alt="Ifeanyi working on projects"
                 width={500}
                 height={500}
@@ -71,7 +71,7 @@ const About = () => {
               </div>
               <div>
                 <h4 className="text-amber-500 font-semibold">Email:</h4>
-                <p className="text-gray-300">ifeanyi.onyekwelu@outlook.com</p>
+                <p className="text-gray-300">ifeanyionyekwelu786@gmail.com</p>
               </div>
               <div>
                 <h4 className="text-amber-500 font-semibold">Age:</h4>

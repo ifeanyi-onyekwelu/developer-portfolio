@@ -97,7 +97,7 @@ const Hero = () => {
                   transition={{ duration: 0.5, delay: 0.3 }}
                 ></motion.div>
                 <motion.h5
-                  className="m-0 font-medium text-xl font-roboto-mono text-amber-500"
+                  className="m-0 font-medium text-xl font-mono text-amber-500"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.3 }}
@@ -207,7 +207,7 @@ const Hero = () => {
                   alt="Ifeanyi Onyekwelu - Developer"
                   width={400}
                   height={400}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </motion.div>
               <motion.div

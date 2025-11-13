@@ -24,11 +24,11 @@ const Skills = () => {
       category: "Backend Development",
       skills: [
         { name: "Node.js", level: "Advanced", icon: "/icons/nodejs.svg" },
-        { name: "Express", level: "Intermediate", icon: "/icons/express.svg" },
+        { name: "GO", level: "Intermediate", icon: "/icons/go.svg" },
         { name: "Python", level: "Intermediate", icon: "/icons/python.svg" },
-        { name: "MongoDB", level: "Intermediate", icon: "/icons/mongodb.svg" },
+        { name: "FastAPI", level: "Intermediate", icon: "/icons/fastapi.png" },
         {
-          name: "PostgreSQL",
+          name: "MySQL/PostgreSQL",
           level: "Intermediate",
           icon: "/icons/postgres.svg",
         },
@@ -39,16 +39,16 @@ const Skills = () => {
       skills: [
         { name: "Git/GitHub", level: "Advanced", icon: "/icons/github.svg" },
         {
-          name: "Blockchain",
+          name: "Docker",
           level: "Intermediate",
-          icon: "/icons/blockchain.svg",
+          icon: "/icons/docker.svg",
         },
         {
           name: "Solidity",
           level: "Intermediate",
           icon: "/icons/solidity.svg",
         },
-        { name: "Web3.js", level: "Intermediate", icon: "/icons/web3js.svg" },
+        { name: "AWS", level: "Intermediate", icon: "/icons/aws.svg" },
         {
           name: "Tailwind CSS",
           level: "Advanced",

@@ -45,8 +45,8 @@ const Header = () => {
           transition={{ duration: 0.9, delay: 0.2 }}
           className="text-2xl md:text-3xl font-semibold"
         >
-          <Link href="#home" className="font-roboto-mono text-white">
-            BuiltByIfeanyi
+          <Link href="#home" className="font-sans text-white font-bold">
+            Ifeanyi Onyekwelu
           </Link>
         </motion.h1>
 
@@ -62,7 +62,7 @@ const Header = () => {
               <motion.li key={index} variants={itemVariants}>
                 <Link
                   href={item.link}
-                  className="text-white/80 font-roboto-mono hover:text-amber-500 duration-200 text-lg md:text-xl font-medium"
+                  className="text-white/80 font-mono hover:text-amber-500 duration-200 text-lg md:text-xl font-medium"
                 >
                   {item.name}
                 </Link>
@@ -115,7 +115,7 @@ const Header = () => {
               >
                 <Link
                   href={item.link}
-                  className="text-white/80 font-roboto-mono hover:text-amber-500 duration-200 text-xl font-medium block py-2"
+                  className="text-white/80 font-mono hover:text-amber-500 duration-200 text-xl font-medium block py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
