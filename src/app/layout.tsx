@@ -3,7 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
 export const metadata = {
-  title: "BuiltByIfeanyi - Developer Portfolio",
+  title: "Ifeanyi Onyekwelu - Software Developer Professional Portfolio",
   description: "Welcome to my developer portfolio!",
   icons: {
     icon: "/favicon.ico",

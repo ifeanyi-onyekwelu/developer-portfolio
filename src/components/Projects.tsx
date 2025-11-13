@@ -7,33 +7,33 @@ import Image from "next/image";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Investment Analytics Platform",
       description:
-        "A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard.",
-      technologies: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-      image: "/project1.jpg", // Replace with actual image
-      githubUrl: "https://github.com/ifeanyi-onyekwelu/ecommerce-platform",
-      liveUrl: "https://ecommerce-demo.vercel.app",
+        "A full-stack investment analytics platform with real-time data visualization and user authentication.",
+      technologies: ["Next.js", "Node.js", "MongoDB", "Chart.js"],
+      image: "/projects/hedgeon-finance.png",
+      githubUrl: "https://github.com/ifeanyi-onyekwelu/hedgeon-finance",
+      liveUrl: "https://hedgeon-finance-ifekels-projects.vercel.app/",
       featured: true,
     },
     {
-      title: "Crypto Dashboard",
+      title: "ReginaNostra School Management System",
       description:
-        "Real-time cryptocurrency tracking dashboard with price alerts and portfolio management.",
-      technologies: ["React", "Firebase", "CoinGecko API", "Tailwind CSS"],
-      image: "/project2.jpg", // Replace with actual image
-      githubUrl: "https://github.com/ifeanyi-onyekwelu/crypto-dashboard",
-      liveUrl: "https://crypto-tracker-io.vercel.app",
+        "A comprehensive school management system with real-time tracking and reporting.",
+      technologies: ["Next.js", "Node.js", "Tailwind CSS"],
+      image: "/projects/reginanostra.png",
+      githubUrl: "https://github.com/ifeanyi-onyekwelu/regina-nostras-schools",
+      liveUrl: "https://www.reginanostraschools.com/",
       featured: false,
     },
     {
-      title: "Task Management App",
+      title: "1010 Realty Group",
       description:
         "Collaborative task management application with real-time updates and team collaboration features.",
-      technologies: ["Next.js", "TypeScript", "Socket.io", "PostgreSQL"],
-      image: "/project3.jpg", // Replace with actual image
-      githubUrl: "https://github.com/ifeanyi-onyekwelu/task-manager",
-      liveUrl: "https://taskflow-app.vercel.app",
+      technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+      image: "/projects/1010.png",
+      githubUrl: "https://github.com/ifeanyi-onyekwelu/10-10-realty-group",
+      liveUrl: "https://1010-realty-group.vercel.app/",
       featured: false,
     },
     {
@@ -41,7 +41,7 @@ const Projects = () => {
       description:
         "Blockchain-based NFT marketplace with minting, buying, and selling functionality.",
       technologies: ["Solidity", "Web3.js", "React", "IPFS"],
-      image: "/project4.jpg", // Replace with actual image
+      image: "/project4.jpg",
       githubUrl: "https://github.com/ifeanyi-onyekwelu/nft-marketplace",
       liveUrl: "https://nft-marketplace-demo.vercel.app",
       featured: true,
