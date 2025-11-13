@@ -8,8 +8,12 @@ import {
   FaTwitter,
   FaEnvelope,
   FaMapMarkerAlt,
+  FaPhone,
+  FaWhatsapp,
+  FaPaperPlane,
 } from "react-icons/fa";
 import emailjs from "emailjs-com";
+import toast, { Toaster } from "react-hot-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +22,7 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,6 +35,9 @@ const Contact = () => {
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
+    const loadingToast = toast.loading("Sending your message...");
 
     emailjs
       .sendForm(
@@ -41,17 +49,59 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
-          alert("Message sent!");
+          toast.success(
+            "Message sent successfully! I'll get back to you soon.",
+            {
+              id: loadingToast,
+              duration: 5000,
+            }
+          );
+          // Reset form
+          setFormData({
+            from_name: "",
+            reply_to: "",
+            subject: "",
+            message: "",
+          });
         },
         (error) => {
           console.log(error.text);
-          alert("Something went wrong!");
+          toast.error("Oops! Something went wrong. Please try again.", {
+            id: loadingToast,
+            duration: 5000,
+          });
         }
-      );
+      )
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
     <section id="contact" className="py-20 px-4 bg-gray-800/30">
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          style: {
+            background: "#1f2937",
+            color: "#fff",
+            border: "1px solid #374151",
+          },
+          success: {
+            iconTheme: {
+              primary: "#f59e0b",
+              secondary: "#fff",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#ef4444",
+              secondary: "#fff",
+            },
+          },
+        }}
+      />
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,7 +152,32 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Email</h4>
-                  <p className="text-gray-300">ifeanyi.onyekwelu@outlook.com</p>
+                  <p className="text-gray-300">ifeanyionyekwelu786@gmail.com</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center">
+                  <FaPhone className="text-amber-500" />
+                </div>
+                <div>
+                  <h4 className="text-white font-medium">Phone</h4>
+                  <p className="text-gray-300">+234 811 320 8256</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center">
+                  <FaWhatsapp className="text-amber-500" />
+                </div>
+                <div>
+                  <h4 className="text-white font-medium">Whatsapp</h4>
+                  <a
+                    href="https://wa.link/rlr1e3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-amber-500 transition-colors"
+                  >
+                    +234 811 320 8256
+                  </a>
                 </div>
               </div>
             </div>
@@ -212,11 +287,41 @@ const Contact = () => {
               </div>
               <motion.button
                 type="submit"
-                className="w-full bg-amber-500 hover:bg-amber-600 text-gray-900 font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                disabled={isSubmitting}
+                className="w-full bg-amber-500 hover:bg-amber-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-gray-900 disabled:text-gray-400 font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
+                whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <svg
+                      className="animate-spin h-5 w-5"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <FaPaperPlane />
+                    Send Message
+                  </>
+                )}
               </motion.button>
             </form>
           </motion.div>

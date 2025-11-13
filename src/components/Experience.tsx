@@ -6,6 +6,21 @@ const Experience = () => {
   const experiences = [
     {
       role: "Software Engineer (Full-Stack)",
+      company: "Babelos | Remote",
+      period: "Sep 2025 - Present",
+      description:
+        "Developing and maintaining high-performance web and backend systems using Next.js and NestJS. Implemented modular, Docker-based microservices architecture to streamline deployments and improve scalability. Integrated REST and GraphQL APIs with PostgreSQL and Redis, optimizing query efficiency and request throughput. Collaborated on UI/UX improvements that enhanced dashboard usability and load times by 30%. Automated CI/CD pipelines with GitHub Actions, ensuring reliable delivery and version control across environments",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Nest.js",
+      ],
+    },
+    {
+      role: "Software Engineer (Full-Stack)",
       company: "Kedusoft | Remote",
       period: "Sep 2024 – Jul 2025",
       description:
