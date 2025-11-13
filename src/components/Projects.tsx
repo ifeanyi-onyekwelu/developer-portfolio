@@ -29,7 +29,7 @@ const Projects = () => {
     {
       title: "1010 Realty Group",
       description:
-        "Collaborative task management application with real-time updates and team collaboration features.",
+        "Modern real estate platform showcasing property listings with advanced search, filtering capabilities, and comprehensive property details.",
       technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
       image: "/projects/1010.png",
       githubUrl: "https://github.com/ifeanyi-onyekwelu/10-10-realty-group",
@@ -39,11 +39,11 @@ const Projects = () => {
     {
       title: "NFT Marketplace",
       description:
-        "Blockchain-based NFT marketplace with minting, buying, and selling functionality.",
-      technologies: ["Solidity", "Web3.js", "React", "IPFS"],
-      image: "/project4.jpg",
-      githubUrl: "https://github.com/ifeanyi-onyekwelu/nft-marketplace",
-      liveUrl: "https://nft-marketplace-demo.vercel.app",
+        "NFT marketplace with minting, buying, and selling functionality.",
+      technologies: ["Python", "Flask", "MySQL", "IPFS"],
+      image: "/projects/mintverse.png",
+      githubUrl: "https://github.com/ifeanyi-onyekwelu/mintverse",
+      liveUrl: "https://mintverse.art/",
       featured: true,
     },
   ];

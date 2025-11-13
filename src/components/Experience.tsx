@@ -9,7 +9,7 @@ const Experience = () => {
       company: "Babelos | Remote",
       period: "Sep 2025 - Present",
       description:
-        "Developing and maintaining high-performance web and backend systems using Next.js and NestJS. Implemented modular, Docker-based microservices architecture to streamline deployments and improve scalability. Integrated REST and GraphQL APIs with PostgreSQL and Redis, optimizing query efficiency and request throughput. Collaborated on UI/UX improvements that enhanced dashboard usability and load times by 30%. Automated CI/CD pipelines with GitHub Actions, ensuring reliable delivery and version control across environments",
+        "Developing web applications using Next.js and NestJS with Docker-based microservices. Working with PostgreSQL and Redis for data management, implementing REST and GraphQL APIs. Contributing to UI/UX improvements and maintaining CI/CD pipelines with GitHub Actions.",
       technologies: [
         "Next.js",
         "TypeScript",
@@ -24,7 +24,7 @@ const Experience = () => {
       company: "Kedusoft | Remote",
       period: "Sep 2024 – Jul 2025",
       description:
-        "Led full-stack development of scalable SaaS and fintech platforms. Boosted monthly transaction processing to $50K+ by integrating Stripe and Paystack, optimized PostgreSQL queries and Redis caching to cut API response times by 35%, and enhanced mobile conversion rates by 22% through redesigned TypeScript/React UI. Deployed Docker-based microservices with GitHub Actions CI/CD, scaling workloads on Kubernetes.",
+        "Built SaaS and fintech platforms with payment integrations using Stripe and Paystack. Optimized database queries with PostgreSQL and implemented Redis caching. Developed responsive UIs with TypeScript and React. Deployed applications using Docker and GitHub Actions CI/CD.",
       technologies: [
         "React",
         "TypeScript",
@@ -41,7 +41,7 @@ const Experience = () => {
       company: "World Brain Technology | Enugu, NG",
       period: "Feb 2024 – Aug 2024",
       description:
-        "Delivered a SaaS platform for SMEs (10K+ users) with React, Node.js, GraphQL, and PostgreSQL. Built AI-driven dashboards enabling real-time insights and scaled microservices to handle 50K+ daily requests on AWS and GCP using Docker and Kubernetes.",
+        "Developed a SaaS platform for SMEs using React, Node.js, GraphQL, and PostgreSQL. Built dashboards for data visualization and insights. Worked with microservices architecture and deployed applications on AWS and GCP using Docker.",
       technologies: [
         "React",
         "Node.js",
@@ -58,7 +58,7 @@ const Experience = () => {
       company: "Aptech Computer Education",
       period: "Sep 2022 – Dec 2023",
       description:
-        "Taught full-stack web development courses including JavaScript, React, Node.js, and databases. Mentored 100+ students through hands-on projects, coding labs, and career workshops. Designed and delivered structured curriculum to improve student pass rates and technical readiness.",
+        "Taught full-stack web development courses covering JavaScript, React, Node.js, and databases. Mentored students through hands-on projects and coding exercises. Designed course materials and delivered structured curriculum.",
       technologies: ["JavaScript", "React", "Node.js", "MongoDB", "MySQL"],
     },
     {
@@ -66,7 +66,7 @@ const Experience = () => {
       company: "CV2 Career Internship | Remote",
       period: "Aug 2023 – Jan 2024",
       description:
-        "Contributed to a SaaS platform serving 10K+ active users. Implemented and deployed 5+ production features on a Python + Firebase stack, improved user retention by 20% through feature enhancements, and reduced customer-reported bugs by 50% with stability-focused releases.",
+        "Contributed to a SaaS platform built with Python and Firebase. Implemented features, fixed bugs, and participated in code reviews. Gained experience with agile development practices and CI/CD workflows.",
       technologies: ["Python", "Firebase", "SaaS", "Agile", "CI/CD"],
     },
     {
