@@ -3,10 +3,10 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
 export const metadata = {
-  title: "Ifeanyi Onyekwelu - Software Developer Professional Portfolio",
+  title: "xIfe3 - Full-Stack & Web3 Developer",
   description: "Welcome to my developer portfolio!",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.jpg",
   },
 };
 

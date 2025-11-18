@@ -71,15 +71,23 @@ const About = () => {
               </div>
               <div>
                 <h4 className="text-amber-500 font-semibold">Email:</h4>
-                <p className="text-gray-300">ifeanyionyekwelu786@gmail.com</p>
+                <p className="text-gray-300">me@xife3.space</p>
               </div>
               <div>
-                <h4 className="text-amber-500 font-semibold">Age:</h4>
-                <p className="text-gray-300">20</p>
+                <h4 className="text-amber-500 font-semibold">Experience:</h4>
+                <p className="text-gray-300">4+ years</p>
               </div>
               <div>
                 <h4 className="text-amber-500 font-semibold">From:</h4>
                 <p className="text-gray-300">Enugu, Nigeria</p>
+              </div>
+              <div>
+                <h4 className="text-amber-500 font-semibold">Focus:</h4>
+                <p className="text-gray-300">Web3 &amp; Full-Stack</p>
+              </div>
+              <div>
+                <h4 className="text-amber-500 font-semibold">Availablity:</h4>
+                <p className="text-gray-300">Open to Work</p>
               </div>
             </div>{" "}
             <motion.a

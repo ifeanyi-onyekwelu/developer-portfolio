@@ -46,7 +46,7 @@ const Header = () => {
           className="text-2xl md:text-3xl font-semibold"
         >
           <Link href="#home" className="font-sans text-white font-bold">
-            Ifeanyi Onyekwelu
+            xIfe3
           </Link>
         </motion.h1>
 

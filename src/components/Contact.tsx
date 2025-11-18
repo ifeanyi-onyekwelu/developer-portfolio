@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import {
   FaGithub,
   FaLinkedin,
-  FaTwitter,
   FaEnvelope,
   FaMapMarkerAlt,
   FaPhone,
@@ -14,6 +13,7 @@ import {
 } from "react-icons/fa";
 import emailjs from "emailjs-com";
 import toast, { Toaster } from "react-hot-toast";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -152,7 +152,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Email</h4>
-                  <p className="text-gray-300">ifeanyionyekwelu786@gmail.com</p>
+                  <p className="text-gray-300">me@xife3.space</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -161,7 +161,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Phone</h4>
-                  <p className="text-gray-300">+234 811 320 8256</p>
+                  <p className="text-gray-300">
+                    +234 811 320 8256 <br /> +234 816 619 0067
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -184,7 +186,7 @@ const Contact = () => {
 
             <div className="flex gap-4 pt-4">
               <motion.a
-                href="https://github.com/ifeanyi-onyekwelu"
+                href="https://github.com/xIfe3"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-amber-500 transition-colors"
@@ -204,14 +206,14 @@ const Contact = () => {
                 <FaLinkedin />
               </motion.a>
               <motion.a
-                href="https://x.com/Code_w_Ifeanyi"
+                href="https://x.com/_xIfe3"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-amber-500 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <FaTwitter />
+                <FaXTwitter />
               </motion.a>
             </div>
           </motion.div>

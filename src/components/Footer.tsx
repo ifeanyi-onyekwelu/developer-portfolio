@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -10,13 +11,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <p className="text-gray-400">
-              © {new Date().getFullYear()} Ifeanyi Onyekwelu. All rights
-              reserved.
+              © {new Date().getFullYear()} xIfe3. All rights reserved.
             </p>
           </div>
           <div className="flex gap-6">
             <motion.a
-              href="https://github.com/ifeanyi-onyekwelu"
+              href="https://github.com/xIfe3"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-amber-500 transition-colors"
@@ -34,13 +34,13 @@ const Footer = () => {
               <FaLinkedin size={20} />
             </motion.a>
             <motion.a
-              href="https://x.com/Code_w_Ifeanyi"
+              href="https://x.com/_xIfe3"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-amber-500 transition-colors"
               whileHover={{ scale: 1.2 }}
             >
-              <FaTwitter size={20} />
+              <FaXTwitter size={20} />
             </motion.a>
           </div>
         </div>

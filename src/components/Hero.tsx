@@ -1,16 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaTwitter,
-  FaPaperPlane,
-  FaDownload,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaPaperPlane, FaDownload } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Hero = () => {
   const socialLinks = [
@@ -21,13 +16,13 @@ const Hero = () => {
     },
     {
       name: "GitHub",
-      url: "https://github.com/ifeanyi-onyekwelu",
+      url: "https://github.com/xIfe3",
       icon: <FaGithub />,
     },
     {
       name: "Twitter",
-      url: "https://x.com/Code_w_Ifeanyi",
-      icon: <FaTwitter />,
+      url: "https://x.com/_xIfe3",
+      icon: <FaXTwitter />,
     },
   ];
 
