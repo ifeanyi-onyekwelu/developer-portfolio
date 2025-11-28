@@ -46,6 +46,21 @@ const Contact = () => {
     const loadingToast = toast.loading("Sending your message...");
 
     try {
+      // 1. Generate reCAPTCHA token
+      const token = await window.grecaptcha.enterprise.execute(
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+        { action: "submit" }
+      );
+
+      // 2. Append token to the form BEFORE sending
+      const hiddenInput = document.createElement("input");
+      hiddenInput.type = "hidden";
+      hiddenInput.name = "g-recaptcha-response";
+      hiddenInput.value = token;
+
+      formRef.current!.appendChild(hiddenInput);
+
+      // 3. Now send form to EmailJS
       await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
@@ -58,7 +73,6 @@ const Contact = () => {
         duration: 5000,
       });
 
-      // Reset form
       setFormData({
         from_name: "",
         reply_to: "",
@@ -356,13 +370,7 @@ const Contact = () => {
 // Add TypeScript declarations for grecaptcha
 declare global {
   interface Window {
-    grecaptcha: {
-      ready: (callback: () => void) => void;
-      execute: (
-        siteKey: string,
-        options: { action: string }
-      ) => Promise<string>;
-    };
+    grecaptcha: any;
   }
 }
 
