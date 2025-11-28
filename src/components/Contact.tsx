@@ -38,6 +38,11 @@ const Contact = () => {
     });
   };
 
+  console.log("SERVICE_ID:", process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
+  console.log("TEMPLATE_ID:", process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
+  console.log("PUBLIC_KEY:", process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+  console.log("RECAPTCHA_KEY:", process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
+
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -45,8 +50,8 @@ const Contact = () => {
     const loadingToast = toast.loading("Sending your message...");
 
     try {
-      // Verify reCAPTCHA first
-      const recaptchaResponse = await new Promise<string>((resolve, reject) => {
+      // 1. GET TOKEN
+      const token = await new Promise<string>((resolve, reject) => {
         if (window.grecaptcha) {
           window.grecaptcha.ready(() => {
             window.grecaptcha
@@ -57,14 +62,20 @@ const Contact = () => {
               .catch(reject);
           });
         } else {
-          reject(new Error("reCAPTCHA not loaded"));
+          reject("reCAPTCHA not loaded");
         }
       });
 
+      const input = document.getElementById(
+        "g-recaptcha-response"
+      ) as HTMLInputElement;
+      if (input) input.value = token;
+
+      // 3. SEND FORM WITH EMAILJS
       await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        e.currentTarget,
+        formRef.current!,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
 
@@ -321,6 +332,11 @@ const Contact = () => {
               </div>
 
               {/* reCAPTCHA badge will appear automatically */}
+              <input
+                type="hidden"
+                name="g-recaptcha-response"
+                id="g-recaptcha-response"
+              />
 
               <motion.button
                 type="submit"
