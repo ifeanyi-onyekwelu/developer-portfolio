@@ -52,19 +52,17 @@ const Contact = () => {
         { action: "submit" }
       );
 
-      // 2. Append token to the form BEFORE sending
-      const hiddenInput = document.createElement("input");
-      hiddenInput.type = "hidden";
-      hiddenInput.name = "g-recaptcha-response";
-      hiddenInput.value = token;
-
-      formRef.current!.appendChild(hiddenInput);
-
-      // 3. Now send form to EmailJS
-      await emailjs.sendForm(
+      // 2. Send with EmailJS using parameters instead of form data
+      await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        formRef.current!,
+        {
+          from_name: formData.from_name,
+          reply_to: formData.reply_to,
+          subject: formData.subject,
+          message: formData.message,
+          "g-recaptcha-response": token, // Include token in parameters
+        },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
 
@@ -80,7 +78,7 @@ const Contact = () => {
         message: "",
       });
     } catch (error) {
-      console.log(error);
+      console.log("EmailJS error:", error);
       toast.error("Oops! Something went wrong. Please try again.", {
         id: loadingToast,
         duration: 5000,
