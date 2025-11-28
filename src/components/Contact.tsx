@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   FaGithub,
@@ -11,9 +11,12 @@ import {
   FaWhatsapp,
   FaPaperPlane,
 } from "react-icons/fa";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
 import { FaXTwitter } from "react-icons/fa6";
+
+// Initialize EmailJS (add this at the top of your component or in a separate config file)
+emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!); // Your public key
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,6 +26,8 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const recaptchaRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -33,49 +38,73 @@ const Contact = () => {
     });
   };
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     const loadingToast = toast.loading("Sending your message...");
 
-    emailjs
-      .sendForm(
-        "service_vwps8d6",
-        "template_wx5614s",
-        e.currentTarget,
-        "jHDRdNFp-5wK8QT3x"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          toast.success(
-            "Message sent successfully! I'll get back to you soon.",
-            {
-              id: loadingToast,
-              duration: 5000,
-            }
-          );
-          // Reset form
-          setFormData({
-            from_name: "",
-            reply_to: "",
-            subject: "",
-            message: "",
+    try {
+      // Verify reCAPTCHA first
+      const recaptchaResponse = await new Promise<string>((resolve, reject) => {
+        if (window.grecaptcha) {
+          window.grecaptcha.ready(() => {
+            window.grecaptcha
+              .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, {
+                action: "submit",
+              })
+              .then(resolve)
+              .catch(reject);
           });
-        },
-        (error) => {
-          console.log(error.text);
-          toast.error("Oops! Something went wrong. Please try again.", {
-            id: loadingToast,
-            duration: 5000,
-          });
+        } else {
+          reject(new Error("reCAPTCHA not loaded"));
         }
-      )
-      .finally(() => {
-        setIsSubmitting(false);
       });
+
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        e.currentTarget,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      toast.success("Message sent successfully! I'll get back to you soon.", {
+        id: loadingToast,
+        duration: 5000,
+      });
+
+      // Reset form
+      setFormData({
+        from_name: "",
+        reply_to: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.log(error);
+      toast.error("Oops! Something went wrong. Please try again.", {
+        id: loadingToast,
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  // Load reCAPTCHA script
+  useEffect(() => {
+    console.log(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
+
+    const loadRecaptcha = () => {
+      const script = document.createElement("script");
+      script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    };
+
+    loadRecaptcha();
+  }, []);
 
   return (
     <section id="contact" className="py-20 px-4 bg-gray-800/30">
@@ -119,6 +148,7 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
+          {/* Left side - Contact info (unchanged) */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -126,6 +156,7 @@ const Contact = () => {
             transition={{ duration: 0.7 }}
             className="space-y-8"
           >
+            {/* ... your existing contact info ... */}
             <h3 className="text-2xl font-bold text-white">
               Let&apos;s talk about your project
             </h3>
@@ -218,13 +249,14 @@ const Contact = () => {
             </div>
           </motion.div>
 
+          {/* Right side - Contact form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <form onSubmit={sendEmail} className="space-y-6">
+            <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="from_name" className="block text-white mb-2">
@@ -287,6 +319,9 @@ const Contact = () => {
                   required
                 ></textarea>
               </div>
+
+              {/* reCAPTCHA badge will appear automatically */}
+
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
@@ -332,5 +367,18 @@ const Contact = () => {
     </section>
   );
 };
+
+// Add TypeScript declarations for grecaptcha
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (
+        siteKey: string,
+        options: { action: string }
+      ) => Promise<string>;
+    };
+  }
+}
 
 export default Contact;
